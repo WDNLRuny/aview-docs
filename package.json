@@ -1,0 +1,23 @@
+{
+  "name": "aview",
+  "version": "1.0.0",
+  "description": "aview",
+  "main": "index.js",
+  "repository": "https://aview.wdnl.xyz",
+  "author": "Runy",
+  "license": "MIT",
+  "devDependencies": {
+    "naive-ui": "^2.33.5",
+    "vitepress": "^1.0.0-alpha.31",
+    "vue": "^3.2.37"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs --host --port=3000",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.4.0",
+    "sass": "^1.56.1"
+  }
+}

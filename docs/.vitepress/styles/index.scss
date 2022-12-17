@@ -1,0 +1,12 @@
+:root {
+	--navbar-padding-h: 1rem;
+	--c-brand: #409eff;
+	--c-brand-light: #79bbff;
+	// --c-bg:rgba(0,0,0,0)
+	
+	--content-width:900px;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
