@@ -4,8 +4,6 @@
 
 借助 WebView2，您可以将 Web 代码嵌入到本机应用的不同部分，或在单个 WebView2 实例中构建所有本机应用。
 
-![what-webview](/image/what-webview.png)
-
 ## WebView2 的好处
 
 - **网络生态系统和技能组合**。利用 Web 生态系统中存在的整个 Web 平台、库、工具和人才。

@@ -2,6 +2,10 @@ export default {
 	title: 'aview',
 	description: 'aview',
 	lang: "zh-CN",
+
+	lastUpdated: true,
+
+
 	head: [
 		['link', {
 			rel: 'preconnect',
@@ -18,6 +22,10 @@ export default {
 		outline: [2, 3],
 		lastUpdatedText: "上次更新",
 		outlineTitle: "目录",
+		editLink: {
+			pattern: 'https://github.com/WDNLRuny/aviewdocs/edit/main/docs/:path',
+			text: '在GitHub上编辑此页面'
+		},
 		docFooter: {
 			prev: '上一篇',
 			next: '下一篇'
@@ -28,7 +36,7 @@ export default {
 				activeMatch: '^/guide/',
 			}, {
 				text: 'API',
-				link: '/api/winform',
+				link: '/api/entry/summary',
 				activeMatch: '^/api/',
 			},
 			{
@@ -71,7 +79,7 @@ export default {
 				text: '入门',
 				items: [{
 					text: '概述',
-					link: '/api/aview'
+					link: '/api/entry/summary'
 				}]
 			}, {
 				text: '基础',
