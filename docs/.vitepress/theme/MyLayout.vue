@@ -4,10 +4,12 @@ import DefaultTheme from 'vitepress/theme';
 import { defineComponent, computed, ref, onMounted } from 'vue';
 import { darkTheme } from 'naive-ui';
 
+import BodyScrollbar from '../components/BodyScrollbar.vue';
+
 const { Layout } = DefaultTheme;
 
 const show = ref(null);
-show.value = window.isAview && !aview.winform.isFullScreen();
+show.value = window.isAview && !aview.winform.restoreFullScreen;
 
 let osThemeRef = ref(null);
 let theme = computed(() => (osThemeRef.value === 'dark' ? darkTheme : null));
@@ -28,40 +30,42 @@ let isMax = ref(null);
 if (window.isAview) {
 	window.addEventListener('resize', () => {
 		isMax.value = aview.winform.isZoomed();
-		show.value = !aview.winform.isFullScreen();
+		show.value = !aview.winform.restoreFullScreen;
 	});
 }
-// let down = false;
-// let d = e => {
-// 	if (down) {
-// 		hitCaption();
-// 		down = false;
-// 	}
-// };
-// document.addEventListener('mousemove', d);
-// document.addEventListener('mouseup', e => {
-// 	down = false;
-// });
+let down = false;
+let d = e => {
+	if (down) {
+		hitCaption();
+		down = false;
+	}
+};
+document.addEventListener('mousemove', d);
+document.addEventListener('mouseup', e => {
+	down = false;
+});
 
-// let m = e => {
-// 	if (e.target == nav) {
-// 		down = true;
-// 	}
-// };
+let m = e => {
+	if (e.target == nav || e.target == navContentBody) {
+		down = true;
+	}
+};
 let nav = null;
+let navContentBody  = null;
 onMounted(() => {
-	// nav = document.querySelector('.VPNav .content');
-	// nav.addEventListener('mousedown', m);
+	nav = document.querySelector('.VPNav .content');
+	navContentBody = document.querySelector('.VPNav .content .content-body');
+	nav.addEventListener('mousedown', m);
 
-	// nav.addEventListener('dblclick', hitMax);
-	// nav.onselectstart = () => false;
+	nav.addEventListener('dblclick', hitMax);
+	nav.onselectstart = () => false;
 });
 </script>
 
 <template>
 	<n-config-provider :theme="theme">
 		<Layout>
-			<!-- <template #nav-bar-content-after>
+			<template #nav-bar-content-after>
 				<div v-if="show" style="display: flex;padding-left: 10px;">
 					<svg @click="hitMin" class="nb" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -88,13 +92,18 @@ onMounted(() => {
 						></path>
 					</svg>
 				</div>
-			</template> -->
+			</template>
+			
+			<template #layout-bottom>
+				<BodyScrollbar></BodyScrollbar>
+			</template>
 		</Layout>
 	</n-config-provider>
 </template>
 
 <style lang="scss">
 $c-text: #4a6988;
+
 
 .nb {
 	width: 20px;

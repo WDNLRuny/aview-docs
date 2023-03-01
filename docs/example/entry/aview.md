@@ -2,6 +2,7 @@
 
 ## 启动 aview.exe
 
+
 通过 config.json 配置文件
 前面已经教你通过配置启动 aview 程序
 

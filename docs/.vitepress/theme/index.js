@@ -1,6 +1,6 @@
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme'
-// import MyLayout from './MyLayout.vue'
+import MyLayout from './MyLayout.vue'
 
 import {
 	useTitle
@@ -13,7 +13,7 @@ import {
 } from 'vue'
 
 import naiveUi from 'naive-ui'
-
+import '../styles/index.scss'
 
 import configCreate from '../components/configCreate.vue'
 import fileOperate from '../components/fileOperate.vue'
@@ -22,11 +22,8 @@ import fileOperate from '../components/fileOperate.vue'
 if (typeof window == "object" && window.aview) {
 	window.isAview = !!window.aview;
 	aview.winform.title = "aview";
-
-	if (aview.config.border == "none" || !aview.config.border) {
-		let shadow = aview.win.ui.shadow(aview.winform);
-
-	}
+	
+	let shadow = aview.win.ui.shadow(aview.winform);
 
 	aview.winform.addEventListener("adjust", (e) => {
 		console.log(e);
@@ -45,14 +42,14 @@ if (typeof window == "object" && window.aview) {
 	};
 
 	document.addEventListener('keydown', keydown);
-
+	
 }
 
 
 
 export default {
 	...DefaultTheme,
-	// Layout: MyLayout,
+	Layout: MyLayout,
 	enhanceApp(ctx) {
 		let {
 			app,

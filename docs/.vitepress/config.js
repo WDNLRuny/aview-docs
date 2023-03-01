@@ -32,41 +32,43 @@ export default {
 		},
 		nav: [{
 				text: '指南',
-				link: '/guide/introduction',
-				activeMatch: '^/guide/',
+				link: '/guides/introduction',
+				activeMatch: '^/guides/',
 			}, {
 				text: 'API',
 				link: '/api/entry/summary',
 				activeMatch: '^/api/',
 			},
-			{
-				text: '范例',
-				link: '/example/entry/aview',
-				activeMatch: '^/example/',
-			},
+			// {
+			// 	text: '范例',
+			// 	link: '/example/entry/aview',
+			// 	activeMatch: '^/example/',
+			// },
 		],
 		sidebar: {
-			'/guide/': [{
+			'/guides/': [
+				
+				{
 				text: '指南',
 				items: [{
 						text: '简介',
-						link: '/guide/introduction'
+						link: '/guides/introduction'
 					},
 					{
 						text: '快速上手',
-						link: '/guide/quick-start'
+						link: '/guides/quick-start'
 					},
 					{
 						text: '配置',
-						link: '/guide/config'
+						link: '/guides/config'
 					},
 					{
 						text: 'aardio',
-						link: '/guide/aardio'
+						link: '/guides/aardio'
 					},
 					{
 						text: 'webview2',
-						link: '/guide/webview2'
+						link: '/guides/webview2'
 					}
 				]
 			}, {
@@ -98,10 +100,13 @@ export default {
 				collapsed: true,
 				items: [{
 					text: '默认库',
-					link: '/api/fsys',
+					link: '/api/fsys/fsys',
 				}, {
 					text: 'dlg',
-					link: '/api/fsys',
+					link: '/api/fsys/dlg',
+				},  {
+					text: 'file',
+					link: '/api/fsys/file',
 				}, ]
 			}, {
 				text: 'win 窗口操作',
@@ -129,25 +134,32 @@ export default {
 							text: '菜单',
 							link: '/example/window/menu'
 						},
-						{
-							text: '视频',
-							link: '/example/window/video'
-						},
-						{
-							text: '游戏',
-							link: '/example/window/game'
-						}
+						// {
+						// 	text: '视频',
+						// 	link: '/example/window/video'
+						// },
+						// {
+						// 	text: '游戏',
+						// 	link: '/example/window/game'
+						// }
 					]
 				},
 				{
 					text: '文件操作',
-					items: [{
+					items: [
+						{
 						text: 'File System Access API',
 						link: '/example/file/File_System_Access_API'
-					}, {
-						text: 'fsys 文件操作',
-						link: '/example/file/fsys'
-					}]
+					},
+					{
+						text: '文件目录对话框',
+						link: '/example/file/dlg'
+					},
+					// {
+					// 	text: 'fsys 文件操作',
+					// 	link: '/example/file/fsys'
+					// },
+					]
 				},
 				{
 					text: '图形图像',
